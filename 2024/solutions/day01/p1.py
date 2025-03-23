@@ -1,4 +1,4 @@
-with open('input.txt', 'r') as file:
+with open('resources/input.txt', 'r') as file:
     first_col, second_col = [], []
     for line in file.readlines():
         _first_col, _second_col = line.split('   ')
