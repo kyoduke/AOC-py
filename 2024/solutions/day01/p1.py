@@ -1,10 +1,15 @@
-with open('resources/input.txt', 'r') as file:
+def extract_columns_from_file(path: str) -> tuple[list, list]:
     first_col, second_col = [], []
-    for line in file.readlines():
-        _first_col, _second_col = line.split('   ')
-        first_col.append(int(_first_col))
-        second_col.append(int(_second_col))
+    with open(path, 'r') as file:
+        for line in file.readlines():
+            first_item, second_item = line.split('   ')
+            first_col.append(int(first_item))
+            second_col.append(int(second_item))
+    return first_col, second_col
 
+
+def resolve():
+    first_col, second_col = extract_columns_from_file('resources/input.txt')
     first_col.sort()
     second_col.sort()
 
@@ -14,3 +19,7 @@ with open('resources/input.txt', 'r') as file:
         distances.append(distance)
 
     print(sum(distances))
+
+
+if __name__ == "__main__":
+    resolve()
